@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="MyUSQuickBarcodeSearcher.css" rel="stylesheet" type="text/css" />
+    <title>Quick Barcode Searcer</title>
+    <script src="MyUSQuickBarcodeSearcher.js" type="text/javascript"></script>
+</head>
+<body id="body">
+    <div id="barcodechecker">
+        <label><b>Quick Barcode Searcher</b></label>
+        <br />
+        <br />
+        <label id="itembarcode"><b>Item Barcode:</b></label>
+        <input type="text" id="itembarcodeinput" />
+        <br /><br />
+        <label id="iteminfo"></label>
+        <br />
+        <br />
+        <button type="submit" id="searchbtn">Search</button>&nbsp;&nbsp;&nbsp;
+    </div>
+</body>
+</html>
+
+
+
