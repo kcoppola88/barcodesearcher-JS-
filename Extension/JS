@@ -1,0 +1,44 @@
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#searchbtn').addEventListener('click', search_Item);
+});
+
+function search_Item() {
+    var itemBarcode = document.querySelector('#itembarcodeinput').value;
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () { };
+        xhr.onerror = function () { };
+
+        xhr.open("GET", "https://www.google.com/search?source=hp&ei=Xk0DWta1NuaW0gLutKeYBQ&q=" + itemBarcode + "&oq=" + itemBarcode + "&gs_l=psy-ab.3...1073.1073.0.1536.1.1.0.0.0.0.96.96.1.1.0....0...1.1.64.psy-ab..0.0.0....0.EEgOynCZpps", true);
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                requestSuccess = true;
+                var parser = new DOMParser();
+                var getDescription = "";
+                var returnedPage = parser.parseFromString(xhr.responseText, "text/html");
+                var jackpot = returnedPage.getElementsByClassName('jackpot-title-ratings-container rhsg3');
+
+                if (jackpot.length == 0) {
+                    var itemText = document.querySelector('#iteminfo');
+                    itemText.innerText = "Sorry, cannot find description for this item. Try a manual search.";
+                }
+                else {
+                    for (var i = 0; i < 1; i++) {
+                        getDescription = jackpot[i].innerText;
+                    }
+                    var itemText = document.querySelector('#iteminfo');
+                    itemText.innerText = getDescription;
+                }
+            }
+            if (this.status == 503 || this.status == 302) {
+                var itemText = document.querySelector('#iteminfo');
+                itemText.innerText = "Google blocking request. CAPTCHA may be needed.";
+            }
+        }
+        xhr.send();
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
