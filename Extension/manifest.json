@@ -1,0 +1,24 @@
+{
+  "browser_action": {
+    "default_icon": "Images/logo.png", //someone needs to pretty-up this logo
+    "default_popup": "MyUSQuickBarcodeSearcher.html"
+  },
+  
+  "description": "MyUSQuickBarcodeSearcher dev 1.0.",
+  "manifest_version": 2,
+  "name": "MyUSQuickBarcodeSearcher",
+  "permissions": [
+    "https://www.google.com/*",
+    "https://ipv4.google.com/sorry/*",
+    "cookies",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [ "https://www.google.com/*" ],
+      "js": ["MyUSQuickBarcodeSearcher.js"]
+    }
+  ],
+  "version": "1.0",
+  "minimum_chrome_version": "58"
+}
