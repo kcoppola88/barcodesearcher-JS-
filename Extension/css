@@ -1,0 +1,35 @@
+/*div class attributes that must be handled by JavaScript per Content Security Policy*/
+.badformat {
+    display:none;
+    color:red;
+}
+
+.incompleteform {
+    display:none;
+    color:red;
+}
+
+.badcreds {
+    display:none;
+    font-weight:bold;
+    color:red;
+}
+
+.autologin{
+    display:none;
+}
+
+.unauthenticated {
+    display:none;
+}
+
+.authenticated {
+    display:none;
+}
+
+.forgotpassword {
+    display:none;
+}
+/*end div class attributes*/
+
+/*remaining CSS below*/
